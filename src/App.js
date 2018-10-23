@@ -73,6 +73,7 @@ class App extends Component {
     this.state = {
       'cost': '',
       'interval': this.time_intervals.yearly,
+      'kwh': '',
       'kwh_price': '',
       'load': 0.5,
       'model': ''
@@ -114,13 +115,15 @@ class App extends Component {
   }
 
   calcCost() {
-    if (this.state.model === '' || this.state.kwh_price === '') {
+    if (this.state.model === '') {
       return;
     }
     let model = this.pi_models[this.state.model]
     let power_con = model.power_con_min + ((model.power_con_max - model.power_con_min) * this.state.load)
     let kwh = power_con / 1000
     let total_kwh = kwh * this.state.interval
+    this.setState({'kwh': total_kwh.toFixed(4)});
+
     let cost = this.state.kwh_price * total_kwh / 100
     cost = cost.toFixed(4);
     this.setState({'cost': cost});
@@ -181,7 +184,16 @@ class App extends Component {
         
         <div className="row form-group">
         <div className="input-group">
-        <input type="text" className="form-control" placeholder="0.00" value={this.state.cost} readOnly/>
+        <input type="text" className="form-control" placeholder="0.0000" value={this.state.kwh} readOnly/>
+          <div className="input-group-append">
+            <span className="input-group-text" id="basic-addon2">kWh</span>
+          </div>
+        </div>
+        </div>
+
+        <div className="row form-group">
+        <div className="input-group">
+        <input type="text" className="form-control" placeholder="0.0000" value={this.state.cost} readOnly/>
           <div className="input-group-append">
             <span className="input-group-text" id="basic-addon2">€</span>
           </div>
