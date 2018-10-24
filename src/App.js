@@ -142,7 +142,7 @@ class App extends Component {
           {
             Object.keys(this.pi_models).map((model_key, index) => (
               <option key={model_key} value={model_key}>
-              {this.pi_models[model_key].name}
+              {this.pi_models[model_key].name} (~{this.pi_models[model_key].power_con_min}–{this.pi_models[model_key].power_con_max} W)
               </option>
             ))
           }
