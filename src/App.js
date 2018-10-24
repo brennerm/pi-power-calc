@@ -70,8 +70,14 @@ class App extends Component {
       'high': 1
     }
 
+    this.currency_factors = {
+      'usd': 1.0,
+      'eur': 1.14
+    }
+
     this.state = {
       'cost': '',
+      'currency': 'usd',
       'interval': this.time_intervals.yearly,
       'kwh': '',
       'kwh_price': '',
@@ -80,10 +86,18 @@ class App extends Component {
     }
 
     this.calcCost = this.calcCost.bind(this);
+    this.currencyChange = this.currencyChange.bind(this);
     this.intervalChange = this.intervalChange.bind(this);
     this.loadChange = this.loadChange.bind(this);
     this.modelChange = this.modelChange.bind(this);
     this.priceChange = this.priceChange.bind(this);
+  }
+
+  currencyChange(event) {
+    let value = event.target.value;
+    this.setState({'currency': value}, function() {
+      this.calcCost();
+    });
   }
 
   intervalChange(event) {
@@ -119,12 +133,14 @@ class App extends Component {
       return;
     }
     let model = this.pi_models[this.state.model]
+    let currency_factor = this.currency_factors[this.state.currency]
     let power_con = model.power_con_min + ((model.power_con_max - model.power_con_min) * this.state.load)
     let kwh = power_con / 1000
     let total_kwh = kwh * this.state.interval
     this.setState({'kwh': total_kwh.toFixed(4)});
 
     let cost = this.state.kwh_price * total_kwh / 100
+    cost = cost * currency_factor
     cost = cost.toFixed(4);
     this.setState({'cost': cost});
   }
@@ -183,21 +199,26 @@ class App extends Component {
         </div>
         
         <div className="row form-group">
-        <div className="input-group">
-        <input type="text" className="form-control" placeholder="0.0000" value={this.state.kwh} readOnly/>
-          <div className="input-group-append">
-            <span className="input-group-text" id="basic-addon2">kWh</span>
+          <div className="input-group">
+          <input type="text" className="form-control" placeholder="0.0000" value={this.state.kwh} readOnly/>
+            <div className="input-group-append">
+              <span className="input-group-text">kWh</span>
+            </div>
           </div>
-        </div>
         </div>
 
         <div className="row form-group">
-        <div className="input-group">
-        <input type="text" className="form-control" placeholder="0.0000" value={this.state.cost} readOnly/>
-          <div className="input-group-append">
-            <span className="input-group-text" id="basic-addon2">€</span>
+          <div className="input-group">
+            <input type="text" className="form-control" placeholder="0.0000" value={this.state.cost} readOnly/>
+              <div className="input-group-append">
+                <span className="input-group-addon">
+                <select className="form-control" value={this.state.currency} onChange={this.currencyChange}>
+                    <option value="usd">$</option>
+                    <option value="eur">€</option>
+                </select>
+                </span>
+              </div>
           </div>
-        </div>
         </div>
 
         </form>
