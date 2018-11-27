@@ -70,14 +70,11 @@ class App extends Component {
       'high': 1
     }
 
-    this.currency_factors = {
-      'usd': 1.0,
-      'eur': 1.14
-    }
+    this.exchange_rates = {}
 
     this.state = {
       'cost': '',
-      'currency': 'usd',
+      'currency': 'USD',
       'interval': this.time_intervals.yearly,
       'kwh': '',
       'kwh_price': '',
@@ -91,6 +88,12 @@ class App extends Component {
     this.loadChange = this.loadChange.bind(this);
     this.modelChange = this.modelChange.bind(this);
     this.priceChange = this.priceChange.bind(this);
+  }
+
+  componentDidMount() {
+    fetch('https://api.exchangeratesapi.io/latest?base=USD')
+      .then(response => response.json())
+      .then(data => {this.exchange_rates = data})
   }
 
   currencyChange(event) {
@@ -133,7 +136,7 @@ class App extends Component {
       return;
     }
     let model = this.pi_models[this.state.model]
-    let currency_factor = this.currency_factors[this.state.currency]
+    let currency_factor = this.exchange_rates.rates[this.state.currency]
     let power_con = model.power_con_min + ((model.power_con_max - model.power_con_min) * this.state.load)
     let kwh = power_con / 1000
     let total_kwh = kwh * this.state.interval
@@ -213,8 +216,8 @@ class App extends Component {
               <div className="input-group-append">
                 <span className="input-group-addon">
                 <select className="form-control" value={this.state.currency} onChange={this.currencyChange}>
-                    <option value="usd">$</option>
-                    <option value="eur">€</option>
+                    <option value="USD">$</option>
+                    <option value="EUR">€</option>
                 </select>
                 </span>
               </div>
