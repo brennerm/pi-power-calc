@@ -1,6 +1,17 @@
 {
-  "main.css": "static/css/main.630117e1.css",
-  "main.css.map": "static/css/main.630117e1.css.map",
-  "main.js": "static/js/main.3bae55a9.js",
-  "main.js.map": "static/js/main.3bae55a9.js.map"
+  "files": {
+    "main.css": "/pi-power-calc/static/css/main.0ff44bea.chunk.css",
+    "main.js": "/pi-power-calc/static/js/main.7dc1a1c8.chunk.js",
+    "main.js.map": "/pi-power-calc/static/js/main.7dc1a1c8.chunk.js.map",
+    "runtime~main.js": "/pi-power-calc/static/js/runtime~main.83ca38b2.js",
+    "runtime~main.js.map": "/pi-power-calc/static/js/runtime~main.83ca38b2.js.map",
+    "static/css/2.266e55a5.chunk.css": "/pi-power-calc/static/css/2.266e55a5.chunk.css",
+    "static/js/2.6099eccc.chunk.js": "/pi-power-calc/static/js/2.6099eccc.chunk.js",
+    "static/js/2.6099eccc.chunk.js.map": "/pi-power-calc/static/js/2.6099eccc.chunk.js.map",
+    "index.html": "/pi-power-calc/index.html",
+    "precache-manifest.cb60787e1786db8c8da767a92ae08296.js": "/pi-power-calc/precache-manifest.cb60787e1786db8c8da767a92ae08296.js",
+    "service-worker.js": "/pi-power-calc/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/pi-power-calc/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.0ff44bea.chunk.css.map": "/pi-power-calc/static/css/main.0ff44bea.chunk.css.map"
+  }
 }
