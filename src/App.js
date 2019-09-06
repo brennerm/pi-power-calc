@@ -54,6 +54,11 @@ class App extends Component {
         'power_con_min': 1.9,
         'power_con_max': 5.1
       },
+      '4b': {
+        'name': 'Raspberry Pi 4 B',
+        'power_con_min': 3.4,
+        'power_con_max': 7.6
+      }
     }
 
     this.time_intervals = {
