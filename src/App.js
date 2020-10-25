@@ -230,6 +230,12 @@ class App extends Component {
         </div>
 
         </form>
+        <script>
+        if (window.location.host !== 'brennerm.github.io') {
+          window.goatcounter = {no_onload: true}
+        }
+        </script>
+        <script data-goatcounter="https://pi-power-calc.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
       </div>
     );
   }
