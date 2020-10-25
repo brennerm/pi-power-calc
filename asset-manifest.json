@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pi-power-calc/static/css/main.0ff44bea.chunk.css",
-    "main.js": "/pi-power-calc/static/js/main.ca89ffb3.chunk.js",
-    "main.js.map": "/pi-power-calc/static/js/main.ca89ffb3.chunk.js.map",
+    "main.js": "/pi-power-calc/static/js/main.7dc1a1c8.chunk.js",
+    "main.js.map": "/pi-power-calc/static/js/main.7dc1a1c8.chunk.js.map",
     "runtime~main.js": "/pi-power-calc/static/js/runtime~main.83ca38b2.js",
     "runtime~main.js.map": "/pi-power-calc/static/js/runtime~main.83ca38b2.js.map",
     "static/css/2.266e55a5.chunk.css": "/pi-power-calc/static/css/2.266e55a5.chunk.css",
     "static/js/2.6099eccc.chunk.js": "/pi-power-calc/static/js/2.6099eccc.chunk.js",
     "static/js/2.6099eccc.chunk.js.map": "/pi-power-calc/static/js/2.6099eccc.chunk.js.map",
     "index.html": "/pi-power-calc/index.html",
-    "precache-manifest.679b44e66bea026e4e9884ff1d9f5c6b.js": "/pi-power-calc/precache-manifest.679b44e66bea026e4e9884ff1d9f5c6b.js",
+    "precache-manifest.871d342d29f91f9ad873325f5ad0fa75.js": "/pi-power-calc/precache-manifest.871d342d29f91f9ad873325f5ad0fa75.js",
     "service-worker.js": "/pi-power-calc/service-worker.js",
     "static/css/2.266e55a5.chunk.css.map": "/pi-power-calc/static/css/2.266e55a5.chunk.css.map",
     "static/css/main.0ff44bea.chunk.css.map": "/pi-power-calc/static/css/main.0ff44bea.chunk.css.map"
