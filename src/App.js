@@ -202,7 +202,7 @@ class App extends Component {
           <div className="row form-group">
             <label className="form-check-label">Total costs:</label>
             <div className="input-group">
-              <input type="text" className="form-control" placeholder="0.0000" value={this.state.cost} readOnly />
+              <input type="text" className="form-control" placeholder="0.00" value={this.state.cost} readOnly />
             </div>
           </div>
 
