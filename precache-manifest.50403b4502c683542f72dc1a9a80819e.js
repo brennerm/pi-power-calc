@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8ca6835e76f6ebe8a08e057ff15d4f4f",
+    "revision": "2a9887b01bb22c6e24f094a664e51b3b",
     "url": "/pi-power-calc/index.html"
   },
   {
