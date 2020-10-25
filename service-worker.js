@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/pi-power-calc/precache-manifest.276450ae269c487cf463f1a4fdb538a0.js"
+  "/pi-power-calc/precache-manifest.679b44e66bea026e4e9884ff1d9f5c6b.js"
 );
 
 self.addEventListener('message', (event) => {
