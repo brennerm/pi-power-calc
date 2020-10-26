@@ -142,6 +142,11 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Raspberry Pi Power Calculator</h1>
         </header>
+        <p>
+          Calculate the power consumption of your Raspberry Pi model (including Zero, Zero W, 1 A, 1 A+, 1 B, 1 B+, 2 B, 3 B+, 4 B) when running it 24/7.
+          <br></br>
+          If you enter your kWh price we'll calculate the total costs as well.
+        </p>
         <form className="container">
           <div className="row form-group">
             <select className="form-control" value={this.state.model} onChange={this.modelChange}>
