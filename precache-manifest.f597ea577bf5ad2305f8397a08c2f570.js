@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "037dc2770d6d094bff066ea8a8cc0e6e",
+    "revision": "139b2eed902592791543c6a85d67666a",
     "url": "/pi-power-calc/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pi-power-calc/static/css/2.266e55a5.chunk.css"
   },
   {
-    "revision": "2d889e3581771752d719",
+    "revision": "ce0ed5b1fc1a6e1676fd",
     "url": "/pi-power-calc/static/css/main.0ff44bea.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pi-power-calc/static/js/2.6099eccc.chunk.js"
   },
   {
-    "revision": "2d889e3581771752d719",
-    "url": "/pi-power-calc/static/js/main.fe260cab.chunk.js"
+    "revision": "ce0ed5b1fc1a6e1676fd",
+    "url": "/pi-power-calc/static/js/main.2a379256.chunk.js"
   },
   {
     "revision": "f40c6929fa6dc91088d9",
