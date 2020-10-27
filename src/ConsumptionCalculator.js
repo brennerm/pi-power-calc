@@ -1,65 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
+import {loads, pi_models} from './Common'
+import {Helmet} from "react-helmet";
 
-
-
-class App extends Component {
+class ConsumptionCalculator extends Component {
   constructor(props) {
     super(props);
-
-    // src: https://de.wikipedia.org/wiki/Raspberry_Pi
-    this.pi_models = {
-      '0': {
-        'name': 'Raspberry Pi Zero',
-        'power_con_min': 0.5,
-        'power_con_max': 0.7
-      },
-      '0w': {
-        'name': 'Raspberry Pi Zero W',
-        'power_con_min': 0.5,
-        'power_con_max': 0.7
-      },
-      '1a': {
-        'name': 'Raspberry Pi 1 A',
-        'power_con_min': 2.5,
-        'power_con_max': 2.5
-      },
-      '1a+': {
-        'name': 'Raspberry Pi 1 A+',
-        'power_con_min': 0.4,
-        'power_con_max': 1.2
-      },
-      '1b': {
-        'name': 'Raspberry Pi 1 B',
-        'power_con_min': 3.5,
-        'power_con_max': 3.5
-      },
-      '1b+': {
-        'name': 'Raspberry Pi 1 B+',
-        'power_con_min': 0.9,
-        'power_con_max': 3.0
-      },
-      '2b': {
-        'name': 'Raspberry Pi 2 B',
-        'power_con_min': 1.1,
-        'power_con_max': 2.3
-      },
-      '3b': {
-        'name': 'Raspberry Pi 3 B',
-        'power_con_min': 1.4,
-        'power_con_max': 3.7
-      },
-      '3b+': {
-        'name': 'Raspberry Pi 3 B+',
-        'power_con_min': 1.9,
-        'power_con_max': 5.1
-      },
-      '4b': {
-        'name': 'Raspberry Pi 4 B',
-        'power_con_min': 3.4,
-        'power_con_max': 7.6
-      }
-    }
 
     this.time_intervals = {
       'daily': 24,
@@ -68,14 +14,6 @@ class App extends Component {
       'quaterly': 2160,
       'yearly': 8760
     }
-
-    this.load = {
-      'low': 0,
-      'med': 0.5,
-      'high': 1
-    }
-
-    this.exchange_rates = {}
 
     this.state = {
       'cost': '',
@@ -125,7 +63,7 @@ class App extends Component {
     if (this.state.model === '') {
       return;
     }
-    let model = this.pi_models[this.state.model]
+    let model = pi_models[this.state.model]
     let power_con = model.power_con_min + ((model.power_con_max - model.power_con_min) * this.state.load)
     let kwh = power_con / 1000
     let total_kwh = kwh * this.state.interval
@@ -138,27 +76,43 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Raspberry Pi Power Calculator</h1>
-        </header>
-        <p>
+      <div className="App container">
+        <Helmet>
+          <title>Raspberry Pi Power Consumption Calculator</title>
+          <meta name="description" content="A calculator to determine the power consumption of your Raspberry Pi model."/>
+          <meta itemprop="name" content="Raspberry Pi Power Consumption Calculator" />
+          <meta itemprop="description" content="A calculator to determine the power consumption of your Raspberry Pi model."/>
+        </Helmet>
+        <h1>Raspberry Pi Power Consumption Calculator</h1>
+        <p className="row">
           Calculate the power consumption of your Raspberry Pi model (including Zero, Zero W, 1 A, 1 A+, 1 B, 1 B+, 2 B, 3 B+, 4 B) when running it 24/7.
           <br></br>
           If you enter your kWh price we'll calculate the total costs as well.
         </p>
-        <form className="container">
+        <form>
           <div className="row form-group">
             <select className="form-control" value={this.state.model} onChange={this.modelChange}>
               <option value='' disabled>Select your Model</option>
               {
-                Object.keys(this.pi_models).map((model_key, index) => (
+                Object.keys(pi_models).map((model_key, index) => (
                   <option key={model_key} value={model_key}>
-                    {this.pi_models[model_key].name} (~{this.pi_models[model_key].power_con_min}–{this.pi_models[model_key].power_con_max} W)
+                    {pi_models[model_key].name} (~{pi_models[model_key].power_con_min}–{pi_models[model_key].power_con_max} W)
                   </option>
                 ))
               }
             </select>
+          </div>
+
+          <div className="row form-group">
+            <label className="form-check-label">Load:</label>
+            {
+              Object.keys(loads).map((load, index) => (
+                <div key={load} className="form-check form-check-inline">
+                  <input type="radio" className="form-check-input" name="load" value={loads[load]} onChange={this.loadChange} checked={this.state.load === loads[load]} />
+                  <label className="form-check-label">{load}</label>
+                </div>
+              ))
+            }
           </div>
 
           <div className="row form-group">
@@ -168,18 +122,6 @@ class App extends Component {
                 <div key={interval} className="form-check form-check-inline">
                   <input type="radio" className="form-check-input" name="interval" value={this.time_intervals[interval]} onChange={this.intervalChange} checked={this.state.interval === this.time_intervals[interval]} />
                   <label className="form-check-label">{interval}</label>
-                </div>
-              ))
-            }
-          </div>
-
-          <div className="row form-group">
-            <label className="form-check-label">Load:</label>
-            {
-              Object.keys(this.load).map((load, index) => (
-                <div key={load} className="form-check form-check-inline">
-                  <input type="radio" className="form-check-input" name="load" value={this.load[load]} onChange={this.loadChange} checked={this.state.load === this.load[load]} />
-                  <label className="form-check-label">{load}</label>
                 </div>
               ))
             }
@@ -217,4 +159,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ConsumptionCalculator;
