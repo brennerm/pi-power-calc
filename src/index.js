@@ -6,28 +6,50 @@ import ConsumptionCalculator from './ConsumptionCalculator';
 import BatteryCapacityCalculator from './BatteryCapacityCalculator';
 import BatteryRuntimeCalculator from './BatteryRuntimeCalculator';
 import registerServiceWorker from './registerServiceWorker';
-import { Navbar, Nav} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
+import ShareButtons from './ShareButtons';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+const basename = "/pi-power-calc"
+const apps = {
+  "/": {
+    "name": "Power Consumption Calculator",
+    "component": ConsumptionCalculator
+  },
+  "/capacity": {
+    "name": "Battery Capacity Calculator",
+    "component": BatteryCapacityCalculator
+  },
+  "/runtime": {
+    "name": "Battery Runtime Calculator",
+    "component": BatteryRuntimeCalculator
+  }
+}
+
 const App = () => (
-  <Router basename="/pi-power-calc">
+  <Router basename={basename}>
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      <Navbar className="fixed-top" collapseOnSelect expand="lg" bg="light" variant="light">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto" activeKey={window.location.pathname}>
-            <Nav.Link href="/pi-power-calc/">Power Consumption Calculator</Nav.Link>
-            <Nav.Link href="/pi-power-calc/capacity">Battery Capacity Calculator</Nav.Link>
-            <Nav.Link href="/pi-power-calc/runtime">Battery Runtime Calculator</Nav.Link>
+            {
+              Object.keys(apps).map((app_path, _) => (
+                <Nav.Link key={app_path} href={basename + app_path}>{apps[app_path].name}</Nav.Link>
+              ))
+            }
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <div>
-        <Route exact path="/" component={ConsumptionCalculator} />
-        <Route path="/capacity" component={BatteryCapacityCalculator} />
-        <Route path="/runtime" component={BatteryRuntimeCalculator} />
+      <div id="test">
+        {
+          Object.keys(apps).map((app_path, _) => (
+            <Route key={app_path} exact path={app_path} component={apps[app_path].component} />
+          ))
+        }
       </div>
+      <ShareButtons title={apps["/" + window.location.pathname.split("/").slice(-1).pop()].name} url={window.location.href}></ShareButtons>
     </div>
   </Router>
 );
