@@ -64,7 +64,7 @@ class BatteryRuntimeCalculator extends Component {
         </Helmet>
         <h1>Raspberry Pi Battery Runtime Calculator</h1>
         <p className="row">
-          Calculate the run time that you can expect when powering your Raspberry Pi model (including Zero, Zero W, 1 A, 1 A+, 1 B, 1 B+, 2 B, 3 B+, 4 B) using a battery with a given capacity.
+          Calculate the run time that you can expect when powering your Raspberry Pi model (including Zero, Zero W, 1 A, 1 A+, 1 B, 1 B+, 2 B, 3 B+, 4 B, 400) using a battery with a given capacity.
         </p>
         <form>
           <div className="row form-group">

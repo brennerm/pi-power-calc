@@ -73,7 +73,7 @@ class BatteryCapacityCalculator extends Component {
         </Helmet>
         <h1>Raspberry Pi Battery Capacity Calculator</h1>
         <p className="row">
-          Calculate the required battery capacity to power your Raspberry Pi model (including Zero, Zero W, 1 A, 1 A+, 1 B, 1 B+, 2 B, 3 B+, 4 B) for your desired run time.
+          Calculate the required battery capacity to power your Raspberry Pi model (including Zero, Zero W, 1 A, 1 A+, 1 B, 1 B+, 2 B, 3 B+, 4 B, 400) for your desired run time.
         </p>
         <form>
           <div className="row form-group">
