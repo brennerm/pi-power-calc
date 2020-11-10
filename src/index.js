@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import ConsumptionCalculator from './ConsumptionCalculator';
 import BatteryCapacityCalculator from './BatteryCapacityCalculator';
 import BatteryRuntimeCalculator from './BatteryRuntimeCalculator';
@@ -28,7 +28,7 @@ const apps = {
 }
 
 const App = () => (
-  <Router basename={basename}>
+  <Router>
     <div>
       <Navbar className="fixed-top" collapseOnSelect expand="lg" bg="light" variant="light">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -36,19 +36,17 @@ const App = () => (
           <Nav className="mr-auto" activeKey={window.location.pathname}>
             {
               Object.keys(apps).map((app_path, _) => (
-                <Nav.Link key={app_path} href={basename + app_path}>{apps[app_path].name}</Nav.Link>
+                <Nav.Link key={app_path} href={basename + "/#" + app_path}>{apps[app_path].name}</Nav.Link>
               ))
             }
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <div id="test">
         {
           Object.keys(apps).map((app_path, _) => (
             <Route key={app_path} exact path={app_path} component={apps[app_path].component} />
           ))
         }
-      </div>
       <ShareButtons title={apps["/" + window.location.pathname.split("/").slice(-1).pop()].name} url={window.location.href}></ShareButtons>
     </div>
   </Router>
