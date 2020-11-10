@@ -47,7 +47,7 @@ const App = () => (
             <Route key={app_path} exact path={app_path} component={apps[app_path].component} />
           ))
         }
-      <ShareButtons title={apps["/" + window.location.pathname.split("/").slice(-1).pop()].name} url={window.location.href}></ShareButtons>
+      <ShareButtons title={apps["/" + window.location.href.split("/").slice(-1).pop()].name} url={window.location.href}></ShareButtons>
     </div>
   </Router>
 );
