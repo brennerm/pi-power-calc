@@ -10,12 +10,17 @@ export const pi_models = {
   '0': {
     'name': 'Raspberry Pi Zero',
     'power_con_min': 0.5,
-    'power_con_max': 0.7
+    'power_con_max': 1.24
   },
   '0w': {
     'name': 'Raspberry Pi Zero W',
-    'power_con_min': 0.5,
-    'power_con_max': 0.7
+    'power_con_min': 0.6,
+    'power_con_max': 1.2
+  },
+  '02w': {
+    'name': 'Raspberry Pi Zero 2 W',
+    'power_con_min': 0.6,
+    'power_con_max': 3.0
   },
   '1a': {
     'name': 'Raspberry Pi 1 A',
@@ -61,5 +66,10 @@ export const pi_models = {
     'name': 'Raspberry Pi 400',
     'power_con_min': 3.4,
     'power_con_max': 7.6
+  },
+  'p': {
+    'name': 'Raspberry Pico',
+    'power_con_min': 0.006,
+    'power_con_max': 0.33
   }
 }
