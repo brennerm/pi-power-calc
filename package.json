@@ -1,7 +1,7 @@
 {
   "name": "pi-power-calc",
   "version": "0.1.0",
-  "homepage": "https://brennerm.github.io/pi-power-calc",
+  "homepage": "https://pi-power-calc.shipit.dev/",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.3",

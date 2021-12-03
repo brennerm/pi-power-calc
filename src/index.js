@@ -11,7 +11,7 @@ import ShareButtons from './ShareButtons';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-const basename = "/pi-power-calc"
+const basename = "/"
 const apps = {
   "/": {
     "name": "Power Consumption Calculator",
