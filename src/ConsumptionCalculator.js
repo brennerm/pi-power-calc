@@ -85,7 +85,7 @@ class ConsumptionCalculator extends Component {
         </Helmet>
         <h1>Raspberry Pi Power Consumption Calculator</h1>
         <p className="row">
-          Calculate the power consumption of your Raspberry Pi model (including Zero, Zero W, 1 A, 1 A+, 1 B, 1 B+, 2 B, 3 B+, 4 B, 400) when running it 24/7.
+          Calculate the power consumption of your Raspberry Pi model (including Zero, Zero W, Zero 2 W, Pico, 1 A, 1 A+, 1 B, 1 B+, 2 B, 3 B+, 4 B, 400) when running it 24/7.
           <br></br>
           If you enter your kWh price the total costs will be calculated as well.
         </p>
