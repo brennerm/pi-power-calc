@@ -11,7 +11,6 @@ import ShareButtons from './ShareButtons';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-const basename = "/"
 const apps = {
   "/": {
     "name": "Power Consumption Calculator",
@@ -36,7 +35,7 @@ const App = () => (
           <Nav className="mr-auto" activeKey={window.location.pathname}>
             {
               Object.keys(apps).map((app_path, _) => (
-                <Nav.Link key={app_path} href={basename + "/#" + app_path}>{apps[app_path].name}</Nav.Link>
+                <Nav.Link key={app_path} href={"/#" + app_path}>{apps[app_path].name}</Nav.Link>
               ))
             }
           </Nav>
